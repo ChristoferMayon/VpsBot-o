@@ -1,0 +1,97 @@
+{
+  "instances": [
+    {
+      "user_id": 5,
+      "instance_name": "wa-rhz-5",
+      "instance_token": "7262a4ad-df96-4936-acc6-0cfe9cf5b482",
+      "provider": "uazapi",
+      "connected": null,
+      "status": null,
+      "created_at": "2025-10-29T23:31:06.117Z",
+      "updated_at": "2025-10-30T00:10:53.429Z",
+      "meta": {
+        "created_raw_keys": [
+          "connected",
+          "info",
+          "instance",
+          "loggedIn",
+          "name",
+          "response",
+          "token"
+        ]
+      }
+    },
+    {
+      "user_id": 3,
+      "instance_name": "admin",
+      "instance_token": "d093e962-d621-4805-914b-9fd8d3ea9cc3",
+      "provider": "uazapi",
+      "connected": true,
+      "status": {
+        "connected": true,
+        "loggedIn": false,
+        "paircode": null,
+        "qrcode": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAABlBMVEX///8AAABVwtN+AAAExUlEQVR42uyZMY77rBbFD6KgCxuI7G2ksOQtTenOdJTeEhJFtoGVDdx0FIjzdJP8Z/7fazNx8d5HM0rmp4TAvYdzDP4d/1/DkIwBI9PFeTGZ1Z/GNgcnJNNBQIGNwZPJkXeS4QvDyOqkwB4F7MxRZGeui8eYXAxks5H61u8BOoVbuyzsgyUDd6a1HgxE8WObr491qCtPw9mSOBAosMELgAtwL7a6DQNsWPDXZn0a0Jrc/HCeLovc93yN22k4T8vyj6J9C3gOv9/ylWKKvTJgsJlV/tGAHwVMmUlhH3Na4Mkr5WRuuS40+6v1Pg5gbNMqoE6Sgmmu/s5bc2THhF8C0swgxeYE+j2nVe5dG16AOR0EYE5u01d1Fb+3OcB02xbnx2fZHwCYMuewcrAJi9wLXAwnnLGAe/9TD58GYNoEL7A5LTRlArwhc139Xp4L9TZg9pzDKgXTBXIaE1Rv2wQn46s3Pw/A5AQv3eZr9S8t2G9tge/jc68OAIA5AMNjeqrzLhi2aVnwI0HvAtrWXoaR16qLcqXIyLZG6eb5AQcAqtxfz4OaMubqqAoTVs/+LJjPA2bPDavnLV0AMUxrIAvW6stwGFAsI1FGptX7PjnyNGCui5Sx4XcA5uQE+y2zUgYFDNkchftRAEyzpFa6q5BhvqqhYWYQs+d0DPCQVfgCW9U/qIvw1MXzw7P13ge09bix26ZCyubi5vvYlhV7t+kYwDC3xUvHfA2iJfesPyyK4Sgg2Ug/2AZHLdDq7+U8rZXFvIzWAUBugB+LtgL3NEcKMGERPCXofUC3gpuW+BypIz5Ubln/UuIDgOQ2X2xTy6rFKBjG5qKY8peH+TSQ4ybDGa4+bHPw3Jtaq73Y3wH0m9zm+xmzfu3D/ANzrGK+PcyngcdeBG+a/tXYudIXm+tKfv+KTwOGTAuwF8DxhGnmpqq0EmOf8EtAZvAa7K7U4/qyQAYVPvanKz4AwNjUvACWladB7eK9n211NPvLYHwcMGXSnutnOHo+0gHZpjXilVCOAB72ze83XqP4jsu63R9KK7p/vwMwM24Yi4q57gW+BLapUWE7DEiAF7ZZS9PwGr5gbmT1ZczpGEBDdnjI6mXlyWRGmn6eFueHV02+DZg+NxdgbvqjT1AhPY1FVe7bYHwe2NNcVxSNvt4XYJVuGlyUb1d8BDBpCWC+Rn9/FEcfb2lZgeEwgG2m+PGWGcXv6bJuvttcnbq83wGAuS3eD6NaFMDWlb5jWul5HDBMc1CVm6kRTEOQHqx1xYGAGhbPx0M6fzJtrhCc4SL4su5vA88QpDXugoh6k+DL2LQZ//iHjwMYpgmPSbqozvyyrKq0y0LzPFiPAAxZQdgGCAsubjMsmsf+7MXnAQ2D+JI+tjl6GWxy4c4y19d/fgdoNgZhg6u4k9UJxjb9uOIDAB0ueGDSmPtwxX3AHKOYV+b9PGCegWDQglD/cNWM8LyeePXF+0CBvhowq8oVm9ZNZ8Io5iXmBwA7cwzsY5qrvFxxt1njUP9jcg4BNm+Y5ij6dvBkmVn945HeYUCAh1Wgw5LSoZkX489CvQkU2PD1eCiriSCnNdxVzJ3sP/d6nwa+b2EA3ou9xo3ljAWC/77o+Rjw7/jfGf8JAAD//1261u6o+l9SAAAAAElFTkSuQmCC",
+        "deviceName": null,
+        "phoneNumber": null,
+        "connectedAt": null
+      },
+      "created_at": "2025-10-30T00:51:57.634Z",
+      "updated_at": "2025-10-31T04:40:56.838Z",
+      "meta": {
+        "created_raw_keys": [
+          "connected",
+          "info",
+          "instance",
+          "loggedIn",
+          "name",
+          "response",
+          "token"
+        ]
+      }
+    },
+    {
+      "user_id": 6,
+      "instance_name": "rhz1",
+      "instance_token": "e22eefa3-64a7-4346-a8a6-338c17404372",
+      "provider": "uazapi",
+      "connected": null,
+      "status": null,
+      "created_at": "2025-10-30T04:40:57.140Z",
+      "updated_at": "2025-10-30T20:13:34.184Z",
+      "meta": {
+        "created_raw_keys": [
+          "connected",
+          "info",
+          "instance",
+          "loggedIn",
+          "name",
+          "response",
+          "token"
+        ]
+      }
+    },
+    {
+      "user_id": 7,
+      "instance_name": "bdunlocker",
+      "instance_token": "3ee4a227-c18a-4a16-8438-1540fe6b78ef",
+      "provider": "uazapi",
+      "connected": null,
+      "status": null,
+      "created_at": "2025-10-30T20:22:59.615Z",
+      "updated_at": "2025-10-30T20:23:07.177Z",
+      "meta": null
+    },
+    {
+      "user_id": 8,
+      "instance_name": "rhz",
+      "instance_token": "9ea4d45a-1e9d-4da3-9aec-7a340224cfed",
+      "provider": "uazapi",
+      "connected": null,
+      "status": null,
+      "created_at": "2025-10-31T17:03:11.620Z",
+      "updated_at": "2025-10-31T17:03:23.661Z",
+      "meta": null
+    }
+  ]
+}

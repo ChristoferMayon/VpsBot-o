@@ -1,0 +1,15 @@
+{
+  "instances": [
+    {
+      "id": 1,
+      "user_id": 3,
+      "instance_id": "admin",
+      "token": "067a4788-5fbd-4b8b-8535-f15b5f1f91b3",
+      "device_name": null,
+      "status": "connected",
+      "connected_at": "2025-10-31T02:25:13.141Z",
+      "updated_at": "2025-10-31T02:25:13.141Z"
+    }
+  ],
+  "seq": 1
+}
