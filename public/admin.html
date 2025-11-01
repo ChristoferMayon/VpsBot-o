@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Painel Administrativo</title>
   <style>
-    :root { --bg:#0f172a; --panel:#111827; --muted:#6b7280; --primary:#10B981; --danger:#ef4444; --text:#e5e7eb; }
+    :root { --bg:#0f172a; --panel:#111827; --panel-weak:#1b2433; --muted:#6b7280; --primary:#10B981; --danger:#ef4444; --text:#e5e7eb; }
     * { box-sizing: border-box; }
     body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, sans-serif; background: var(--bg); color: var(--text); }
     header { padding: 16px; background: #0b1220; border-bottom: 1px solid #1f2937; }
@@ -33,6 +33,241 @@
     @media (min-width: 768px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
     .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: none; align-items: center; justify-content: center; z-index: 1000; }
     .modal { background: var(--panel); border: 1px solid #1f2937; border-radius: 10px; padding: 16px; width: 90%; max-width: 420px; }
+    
+    /* Responsividade para tabela de usuários */
+    @media (max-width: 767px) {
+      .users-table-container { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .users-table { min-width: 700px; font-size: 12px; }
+      .users-table th, .users-table td { padding: 8px 6px; white-space: nowrap; }
+      .users-table .actions { 
+        display: flex; 
+        flex-direction: column; 
+        gap: 2px; 
+        min-width: 160px; 
+        align-items: stretch;
+      }
+      .users-table .actions button { 
+        font-size: 9px; 
+        padding: 4px 6px; 
+        white-space: nowrap; 
+        border-radius: 3px;
+        min-height: 24px;
+        text-align: center;
+        line-height: 1.2;
+      }
+      .users-table .tag { font-size: 10px; padding: 1px 6px; }
+      .users-table .muted { font-size: 10px; }
+    }
+    
+    /* Melhorias gerais para mobile */
+    @media (max-width: 480px) {
+      main { padding: 12px; }
+      .card { padding: 12px; margin-bottom: 12px; }
+      .users-table { font-size: 11px; }
+      .users-table th, .users-table td { padding: 6px 4px; }
+      .users-table .actions { 
+        min-width: 140px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2px;
+      }
+      .users-table .actions button { 
+        font-size: 8px; 
+        padding: 3px 4px; 
+        min-height: 22px;
+        border-radius: 2px;
+      }
+      .grid-3 { grid-template-columns: 1fr; }
+      .row-2 { grid-template-columns: 1fr; }
+      .actions { flex-direction: column; align-items: stretch; }
+      .actions button { margin-bottom: 4px; }
+    }
+    
+    /* Estilos adicionais para melhor UX mobile */
+    @media (max-width: 767px) {
+      header { padding: 12px; }
+      header h1 { font-size: 18px; }
+      .modal { width: 95%; padding: 12px; }
+      input, select { font-size: 16px; } /* Evita zoom no iOS */
+    }
+    
+    /* Estilos para funcionalidade de expansão dos usuários */
+    .user-row {
+      transition: background-color 0.2s ease;
+    }
+    
+    .user-row:hover {
+      background-color: rgba(0, 123, 255, 0.05);
+    }
+    
+    .user-row.expanded {
+      background-color: rgba(0, 123, 255, 0.1);
+    }
+    
+    .expand-indicator {
+      text-align: center;
+      width: 40px;
+    }
+    
+    .expand-arrow {
+      font-size: 12px;
+      color: #666;
+      transition: transform 0.2s ease;
+    }
+    
+    .user-actions-row {
+      background-color: var(--panel-weak);
+    }
+    /* Permite que o conteúdo dentro da linha expandida quebre linha normalmente */
+    .user-actions-row td {
+      white-space: normal !important;
+    }
+    
+    .user-actions-container {
+      padding: 15px;
+      border-top: 1px solid #1f2937;
+      background: var(--panel-weak);
+    }
+    
+    .user-actions-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-start;
+      align-items: stretch;
+    }
+    
+    .user-actions-grid button {
+      padding: 8px 12px;
+      font-size: 12px;
+      border-radius: 4px;
+      min-height: 32px;
+      transition: all 0.2s ease;
+      white-space: nowrap; /* Mantém lado a lado */
+      line-height: 1.2;
+      text-align: center;
+      min-width: 110px;
+    }
+    /* Cores mais visíveis para os botões nas abas expandidas */
+    .user-actions-grid button.btn,
+    .admin-actions button.btn {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid #334155;
+      color: var(--text);
+    }
+    .user-actions-grid button.btn:hover,
+    .admin-actions button.btn:hover {
+      background: rgba(255,255,255,0.12);
+      filter: brightness(1.05);
+    }
+    
+    /* Responsividade para expansão em mobile */
+    @media (max-width: 767px) {
+      .user-row {
+        cursor: pointer;
+      }
+      
+      .user-row:active {
+        background-color: rgba(0, 123, 255, 0.15);
+      }
+      
+      .user-actions-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      
+      .user-actions-grid button {
+        font-size: 11px;
+        padding: 6px 8px;
+        min-height: 28px;
+        touch-action: manipulation; /* Melhora responsividade ao toque */
+      }
+      
+      .user-actions-container {
+        padding: 12px;
+      }
+      
+      .expand-indicator {
+        width: 30px;
+        padding: 8px;
+      }
+      
+      .expand-arrow {
+        font-size: 14px;
+      }
+      
+      /* Adicionar indicação visual de que a linha é clicável */
+      .user-row td:first-child::before {
+        content: "👆 ";
+        font-size: 10px;
+        opacity: 0.6;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .user-actions-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+      
+      .user-actions-grid button {
+        font-size: 10px;
+        padding: 5px 6px;
+        min-height: 26px;
+        min-width: 92px;
+      }
+      
+      .user-actions-container {
+        padding: 10px;
+      }
+    }
+
+    /* Layout horizontal específico para admins */
+    .admin-actions {
+      display: flex !important;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: flex-start;
+      align-items: stretch;
+    }
+    .admin-actions button {
+      white-space: nowrap;
+      min-width: 110px;
+      font-size: 10px;
+      padding: 4px 6px;
+      min-height: 24px;
+    }
+    @media (max-width: 767px) {
+      .admin-actions { gap: 4px; }
+      .admin-actions button { min-width: 100px; font-size: 9px; padding: 4px 5px; min-height: 22px; }
+    }
+    @media (max-width: 480px) {
+      .admin-actions { gap: 3px; }
+      .admin-actions button { min-width: 92px; font-size: 8px; padding: 3px 4px; min-height: 20px; }
+    }
+    
+    /* Melhorias específicas para botões de ação em mobile */
+    @media (max-width: 480px) {
+      .users-table .actions button.btn-primary,
+      .user-actions-grid button.btn-primary {
+        background: var(--primary);
+        color: #03281f;
+        font-weight: 600;
+      }
+      .users-table .actions button.btn-danger,
+      .user-actions-grid button.btn-danger {
+        background: var(--danger);
+        color: #13080a;
+        font-weight: 600;
+      }
+      .users-table .actions button:hover,
+      .user-actions-grid button:hover {
+        opacity: 0.8;
+        transform: scale(0.98);
+      }
+    }
   </style>
 </head>
 <body>
@@ -103,8 +338,8 @@
         <button class="btn" onclick="loadUsers()">Atualizar lista</button>
         <span id="list-status" class="muted"></span>
       </div>
-      <div style="overflow:auto;">
-        <table>
+      <div class="users-table-container" style="overflow:auto;">
+        <table class="users-table">
           <thead>
             <tr>
               <th>ID</th>
@@ -113,7 +348,7 @@
               <th>Validade</th>
               <th>Créditos</th>
               <th>Mensagens</th>
-              <th>Ações</th>
+              <th style="width: 40px;">⚙️</th>
             </tr>
           </thead>
           <tbody id="users-tbody"></tbody>
@@ -305,7 +540,10 @@
       tbody.innerHTML = '';
       const adminCount = Array.isArray(users) ? users.filter(x => String(x.role) === 'admin').length : 0;
       users.forEach(u => {
+        // Linha principal do usuário (clicável)
         const tr = document.createElement('tr');
+        tr.className = 'user-row';
+        tr.setAttribute('data-user-id', u.id);
         tr.innerHTML = `
           <td>${u.id}</td>
           <td>${u.username} <span class="tag ${u.role === 'admin' ? 'blue' : ''}">${u.role === 'admin' ? 'admin' : 'usuário'}</span></td>
@@ -313,38 +551,92 @@
           <td>${fmtDate(u.expires_at)} <span class="muted">(${daysLeft(u.expires_at)})</span></td>
           <td>${typeof u.credits === 'number' ? u.credits : 0}</td>
           <td>${u.message_count}</td>
-          <td class="actions"></td>
+          <td class="expand-indicator">
+            <span class="expand-arrow">▼</span>
+          </td>
         `;
-        const actions = tr.querySelector('.actions');
-        if (String(u.role) !== 'admin') {
-          actions.appendChild(actionBtn('Ativar', () => updateUser(u.id, { active: 1 })));
-          actions.appendChild(actionBtn('Inativar', () => updateUser(u.id, { active: 0 })));
-        }
-        // Removido: Setar dias (não mostrar para usuários)
-        actions.appendChild(actionBtn('Alterar senha', () => openPasswordModal(u.id)));
-        // Removido: Créditos+ (não mostrar para usuários)
+        
+        // Linha expansível com as ações
+        const expandRow = document.createElement('tr');
+        expandRow.className = 'user-actions-row';
+        expandRow.style.display = 'none';
+        expandRow.innerHTML = `
+          <td colspan="7">
+            <div class="user-actions-container">
+              <div class="user-actions-grid" id="actions-${u.id}"></div>
+            </div>
+          </td>
+        `;
+        
+        // Adicionar evento de clique na linha principal
+        tr.addEventListener('click', () => toggleUserActions(u.id));
+        tr.style.cursor = 'pointer';
+        
+        // Criar botões de ação
+        const actionsContainer = expandRow.querySelector(`#actions-${u.id}`);
+        // Para admins, vamos aplicar uma classe específica para layout horizontal
         if (String(u.role) === 'admin') {
-          actions.appendChild(actionBtn('Definir créditos', () => openCreditsModal(u.id, Number(u.credits || 0))));
-          actions.appendChild(actionBtn('Alterar nome', () => openUsernameModal(u.id, String(u.username || ''))));
-        } else {
-          actions.appendChild(actionBtn('Definir créditos', () => openTransferModal(u.id, Number(u.credits || 0))));
-          actions.appendChild(actionBtn('Adicionar dias', () => openAddDaysModal(u.id, Number(u.expires_at || 0))));
+          actionsContainer.classList.add('admin-actions');
         }
+        
         if (String(u.role) !== 'admin') {
-          actions.appendChild(actionBtn('Zerar créditos', () => updateUser(u.id, { credits: 0 })));
-          actions.appendChild(actionBtn('Remover usuário', () => deleteUser(u.id), 'btn-danger'));
+          actionsContainer.appendChild(actionBtn('Ativar', () => updateUser(u.id, { active: 1 })));
+          actionsContainer.appendChild(actionBtn('Inativar', () => updateUser(u.id, { active: 0 })));
+        }
+        actionsContainer.appendChild(actionBtn('Alterar senha', () => openPasswordModal(u.id)));
+        
+        if (String(u.role) === 'admin') {
+          actionsContainer.appendChild(actionBtn('Definir créditos', () => openCreditsModal(u.id, Number(u.credits || 0))));
+          actionsContainer.appendChild(actionBtn('Alterar nome', () => openUsernameModal(u.id, String(u.username || ''))));
+        } else {
+          actionsContainer.appendChild(actionBtn('Definir créditos', () => openTransferModal(u.id, Number(u.credits || 0))));
+          actionsContainer.appendChild(actionBtn('Adicionar dias', () => openAddDaysModal(u.id, Number(u.expires_at || 0))));
+        }
+        
+        if (String(u.role) !== 'admin') {
+          actionsContainer.appendChild(actionBtn('Zerar créditos', () => updateUser(u.id, { credits: 0 })));
+          actionsContainer.appendChild(actionBtn('Remover usuário', () => deleteUser(u.id), 'btn-danger'));
         } else {
           if (adminCount >= 2) {
-            actions.appendChild(actionBtn('Remover usuário', () => deleteUser(u.id), 'btn-danger'));
+            actionsContainer.appendChild(actionBtn('Remover usuário', () => deleteUser(u.id), 'btn-danger'));
           }
         }
+        
         tbody.appendChild(tr);
+        tbody.appendChild(expandRow);
       });
     }
 
     function actionBtn(text, handler, cls='btn') {
       const b = document.createElement('button');
       b.className = cls; b.textContent = text; b.onclick = handler; return b;
+    }
+
+    function toggleUserActions(userId) {
+      const userRow = document.querySelector(`tr[data-user-id="${userId}"]`);
+      const actionsRow = userRow.nextElementSibling;
+      const arrow = userRow.querySelector('.expand-arrow');
+      
+      if (actionsRow.style.display === 'none') {
+        // Fechar todas as outras linhas abertas
+        document.querySelectorAll('.user-actions-row').forEach(row => {
+          row.style.display = 'none';
+        });
+        document.querySelectorAll('.expand-arrow').forEach(arr => {
+          arr.textContent = '▼';
+          arr.parentElement.parentElement.classList.remove('expanded');
+        });
+        
+        // Abrir a linha atual
+        actionsRow.style.display = 'table-row';
+        arrow.textContent = '▲';
+        userRow.classList.add('expanded');
+      } else {
+        // Fechar a linha atual
+        actionsRow.style.display = 'none';
+        arrow.textContent = '▼';
+        userRow.classList.remove('expanded');
+      }
     }
 
     async function updateUser(id, payload) {

@@ -24,7 +24,7 @@
     {
       "user_id": 3,
       "instance_name": "admin",
-      "instance_token": "d093e962-d621-4805-914b-9fd8d3ea9cc3",
+      "instance_token": "133278e2-d247-4787-8096-9882d8962b24",
       "provider": "uazapi",
       "connected": true,
       "status": {
@@ -37,7 +37,7 @@
         "connectedAt": null
       },
       "created_at": "2025-10-30T00:51:57.634Z",
-      "updated_at": "2025-10-31T04:40:56.838Z",
+      "updated_at": "2025-10-31T23:11:22.451Z",
       "meta": {
         "created_raw_keys": [
           "connected",
@@ -91,6 +91,17 @@
       "status": null,
       "created_at": "2025-10-31T17:03:11.620Z",
       "updated_at": "2025-10-31T17:03:23.661Z",
+      "meta": null
+    },
+    {
+      "user_id": 12,
+      "instance_name": "wer",
+      "instance_token": "dfca0ee8-22d6-4cd5-bb87-35f452ce6032",
+      "provider": "uazapi",
+      "connected": null,
+      "status": null,
+      "created_at": "2025-11-01T04:53:38.774Z",
+      "updated_at": "2025-11-01T04:53:43.264Z",
       "meta": null
     }
   ]

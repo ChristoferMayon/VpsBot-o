@@ -506,3 +506,11 @@
 [2025-10-31T18:57:12.615Z] send_carousel.manual_mode {"user_id":8,"instance_name":"rhz","token_saved":true}
 [2025-10-31T19:05:22.985Z] send_carousel.manual_mode {"user_id":8,"instance_name":"rhz","token_saved":true}
 [2025-10-31T19:05:57.085Z] send_carousel.manual_mode {"user_id":8,"instance_name":"rhz","token_saved":true}
+[2025-10-31T23:11:18.548Z] user.bind_instance.request {"user_id":3,"instance_name":"admin","provided_token":true}
+[2025-10-31T23:11:18.556Z] user.bind_instance.updated {"user_id":3,"instance_name":"admin","token_saved":true}
+[2025-10-31T23:11:22.449Z] user.bind_instance.request {"user_id":3,"instance_name":"admin","provided_token":true}
+[2025-10-31T23:11:22.453Z] user.bind_instance.updated {"user_id":3,"instance_name":"admin","token_saved":true}
+[2025-11-01T04:53:38.771Z] user.bind_instance.request {"user_id":12,"instance_name":"wer","provided_token":true}
+[2025-11-01T04:53:38.777Z] user.bind_instance.updated {"user_id":12,"instance_name":"wer","token_saved":true}
+[2025-11-01T04:53:43.261Z] user.bind_instance.request {"user_id":12,"instance_name":"wer","provided_token":true}
+[2025-11-01T04:53:43.270Z] user.bind_instance.updated {"user_id":12,"instance_name":"wer","token_saved":true}

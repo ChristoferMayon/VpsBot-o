@@ -3,31 +3,29 @@
     {
       "id": 3,
       "username": "admin",
-      "password_hash": "$2a$10$0TbTvgXDmEkIcihSSZKMeO/ap46YVjc3vwcK2Y87Ouoid3yqq4uwK",
+      "password_hash": "$2a$10$GDkJbPhybT/EnDg5ySTt/OWr9bcTlwglbsnyzlz2W3zNCwMeEuDDK",
       "role": "admin",
       "expires_at": 1764365838470,
       "message_count": 45,
       "active": 1,
       "created_at": 1761773838470,
-      "updated_at": 1761932161738,
-      "credits": 1958,
+      "updated_at": 1761973289781,
+      "credits": 2958,
       "instance_name": "admin",
-      "instance_token": "d093e962-d621-4805-914b-9fd8d3ea9cc3"
+      "instance_token": "133278e2-d247-4787-8096-9882d8962b24"
     },
     {
-      "id": 8,
+      "id": 14,
       "username": "rhz",
-      "password_hash": "$2a$10$jG9VXF4uH0oUU7CG.OFp0.UJFbTySEsh1IDPhXXlK2VdMAoxc6c4y",
+      "password_hash": "$2a$10$o8KXEsS.NQTzTtlZpugF7uyp.xvmq.JFaZacak.TBA9YHLjC9aMJm",
       "role": "user",
-      "expires_at": 1764458408260,
-      "message_count": 14,
-      "credits": 2,
+      "expires_at": 1763269158857,
+      "message_count": 0,
+      "credits": 0,
       "active": 1,
-      "created_at": 1761866408326,
-      "updated_at": 1761937563795,
-      "instance_name": "rhz",
-      "instance_token": "9ea4d45a-1e9d-4da3-9aec-7a340224cfed"
+      "created_at": 1761973158923,
+      "updated_at": 1761973158923
     }
   ],
-  "seq": 10
+  "seq": 14
 }

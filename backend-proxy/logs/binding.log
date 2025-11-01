@@ -89,3 +89,11 @@
 [2025-10-31T17:03:23.661Z] BIND_UPDATED {"user_id":8,"instance_name":"rhz","token_saved":true}
 [2025-10-31T17:07:02.732Z] INIT {"message":"binding log ready"}
 [2025-10-31T17:11:28.141Z] INIT {"message":"binding log ready"}
+[2025-10-31T23:11:18.551Z] BIND_REQUEST {"user_id":3,"instance_name":"admin","providedToken":true}
+[2025-10-31T23:11:18.556Z] BIND_UPDATED {"user_id":3,"instance_name":"admin","token_saved":true}
+[2025-10-31T23:11:22.449Z] BIND_REQUEST {"user_id":3,"instance_name":"admin","providedToken":true}
+[2025-10-31T23:11:22.453Z] BIND_UPDATED {"user_id":3,"instance_name":"admin","token_saved":true}
+[2025-11-01T04:53:38.772Z] BIND_REQUEST {"user_id":12,"instance_name":"wer","providedToken":true}
+[2025-11-01T04:53:38.777Z] BIND_UPDATED {"user_id":12,"instance_name":"wer","token_saved":true}
+[2025-11-01T04:53:43.262Z] BIND_REQUEST {"user_id":12,"instance_name":"wer","providedToken":true}
+[2025-11-01T04:53:43.270Z] BIND_UPDATED {"user_id":12,"instance_name":"wer","token_saved":true}
